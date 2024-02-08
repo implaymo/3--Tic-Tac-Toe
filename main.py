@@ -5,4 +5,6 @@ board = Board()
 player1 = Player()
 
 
+player1.play()
+board.add_signs(player1.player_row_decision, player1.player_column_decision, player1.player_choice)
 board.print_board()

@@ -4,14 +4,14 @@ class Player():
         self.row = [0,1,2]
         self.player_row_decision = 0
         self.player_column_decision = 0
-    
+        self.player_choice = ""
 
     def sign_choice(self):
-        player_choice = input("Choose X or O: ").upper()
-        while player_choice != "X" and player_choice != "O":
+        self.player_choice = input("Choose X or O: ").upper()
+        while self.player_choice != "X" and self.player_choice != "O":
             print("Wrong choice. You must choose 'X' or 'O'")
-            player_choice = input("Choose X or O: ").upper()
-        return player_choice
+            self.player_choice = input("Choose X or O: ").upper()
+        return self.player_choice
     
     def column_choice(self):
         self.player_column_decision = int(input("In which column do you want to put? Choose 0/2/4: "))
@@ -27,7 +27,7 @@ class Player():
             self.player_row_decision = int(input("In which row do you want to put? Choose 0/1/2: "))
         return self.player_row_decision
      
-    def play(self, board):
+    def play(self):
         self.sign_choice()
         self.column_choice()
         self.row_choice()
