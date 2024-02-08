@@ -1,18 +1,13 @@
 from player import Player
-board = [
-    ["_", "|", "_", "|", "_"],
-    ["_", "|", "_", "|", "_"],
-    [" ", "|", " ", "|"," "]
-    ]
+from board import Board
 
-def print_board():
+board = Board()
+player1 = Player()
+
+
+def print_board(board):
     for row in board:
         print(*row)
         
-        
-### Way of getting Players answer on the board
-# board[first_user_row_decision][first_user_column_decision] = first_user_choice
-
-
-
-print_board()
+    
+print_board(board.board)
