@@ -1,3 +1,4 @@
+from player import Player
 board = [
     ["_", "|", "_", "|", "_"],
     ["_", "|", "_", "|", "_"],
