@@ -28,6 +28,5 @@ class Player():
         return self.player_row_decision
      
     def play(self):
-        self.sign_choice()
         self.column_choice()
         self.row_choice()
