@@ -1,4 +1,3 @@
-from player import Player
 class Board():
     def __init__(self) -> None:
         self.board = [
@@ -6,7 +5,7 @@ class Board():
                 ["_", "|", "_", "|", "_"],
                 [" ", "|", " ", "|"," "]
                 ]
-        self.player = Player()
+
         
     def add_signs(self, row, column, user_choice):
        self.board[row][column] = user_choice
