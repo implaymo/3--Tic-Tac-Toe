@@ -10,9 +10,8 @@ class Player():
         self.player_choice = input("Choose X or O: ").upper()
         while self.player_choice != "X" and self.player_choice != "O":
             print("Wrong choice. You must choose 'X' or 'O'")
-            self.player_choice = input("Choose X or O: ").upper()
-        return self.player_choice
-    
+            self.sign_choice()
+            
     def column_choice(self):
         self.player_column_decision = int(input("In which column do you want to put? Choose 0/2/4: "))
         if self.player_column_decision not in self.column:
