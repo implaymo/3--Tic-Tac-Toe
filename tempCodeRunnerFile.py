@@ -1,1 +1,1 @@
-board.print_board()
+["0","2","4"

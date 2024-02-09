@@ -3,6 +3,7 @@ from board import Board
 
 board = Board()
 player1 = Player()
+player2 = Player()
 
 player1.sign_choice()
 while True:
