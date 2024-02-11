@@ -1,9 +1,9 @@
 class Player():
     def __init__(self) -> None:
-        self.column = [0,2,4]
-        self.row = [0,1,2]
-        self.player_row_decision = 0
-        self.player_column_decision = 0
+        self.column = ["0","2","4"]
+        self.row = ["0","1","2"]
+        self.player_row_decision = "0"
+        self.player_column_decision = "0"
         self.player_choice = ""
 
     def sign_choice(self):
@@ -14,23 +14,23 @@ class Player():
             
     def column_choice(self):
         try: 
-            self.player_column_decision = int(input("In which column do you want to put? Choose 0/2/4: "))
+            self.player_column_decision = input("In which column do you want to put? Choose 0/2/4: ")
         except ValueError:
             print("Wrong choice. You must choose 0, 2 or 4") 
             self.column_choice()
         else:
-            if self.player_column_decision not in self.column:
+            if self.player_column_decision not in self.column or len(str(self.player_column_decision)) > 1:
                 print("Wrong choice. You must choose 0, 2 or 4: ") 
                 self.column_choice()
     
     def row_choice(self):
         try: 
-            self.player_row_decision = int(input("In which row do you want to put? Choose 0/1/2: "))
+            self.player_row_decision = input("In which row do you want to put? Choose 0/1/2: ")
         except ValueError:
             print("Wrong choice. You must choose 0, 1 or 2") 
             self.row_choice()
         else:
-            if self.player_row_decision not in self.row:
+            if self.player_row_decision not in self.row or len(str(self.player_row_decision)) > 1:
                 print("Wrong choice. You must choose 0, 1 or 2") 
                 self.row_choice()
                 
