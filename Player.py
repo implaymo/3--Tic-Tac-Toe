@@ -6,6 +6,7 @@ class Player():
         self.player_column_decision = "0"
         self.player_choice = ""
         self.player_number = f"Player {player_number}"
+        self.valid_move = True
 
     
     def sign_choice(self):

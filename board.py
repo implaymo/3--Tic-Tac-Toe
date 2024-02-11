@@ -1,3 +1,5 @@
+
+
 class Board():
     def __init__(self) -> None:
         self.board = [
@@ -5,13 +7,14 @@ class Board():
                 ["_", "|", "_", "|", "_"],
                 [" ", "|", " ", "|"," "]
                 ]
-
-    
+        self.valid_move = True
+        
     def add_signs(self, row, column, user_choice):
         if self.board[int(row)][int(column)] == "X" or self.board[int(row)][int(column)]  == "O":
             print("Position already choosen. Try again.")
-
+            self.valid_move = False
         else: 
+            self.valid_move = True
             self.board[int(row)][int(column)]  = user_choice
 
     def print_board(self):
