@@ -20,3 +20,10 @@ class Board():
     def print_board(self):
         for row in self.board:
             print(*row)
+            
+    def check_if_winner(self):
+        for row, inner_list in enumerate(self.board): 
+            for column, element in enumerate(inner_list): 
+                pass
+            
+    
