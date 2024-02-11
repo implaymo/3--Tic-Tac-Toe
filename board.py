@@ -6,10 +6,11 @@ class Board():
                 [" ", "|", " ", "|"," "]
                 ]
 
-        
+    
     def add_signs(self, row, column, user_choice):
         if self.board[int(row)][int(column)] == "X" or self.board[int(row)][int(column)]  == "O":
             print("Position already choosen. Try again.")
+
         else: 
             self.board[int(row)][int(column)]  = user_choice
 

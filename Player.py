@@ -13,6 +13,7 @@ class Player():
         if self.player_choice != "X" and self.player_choice != "O":
             print("Wrong choice. You must choose 'X' or 'O'")
             self.sign_choice()
+        return self.player_choice
             
     def column_choice(self):
         try: 

@@ -7,11 +7,10 @@ player2 = Player(2)
 
 player1_choice = player1.sign_choice()
 player2_choice = player2.sign_choice()
-if player2_choice == player1_choice:
+
+while player2_choice == player1_choice:
     print("Player 2, you must choose a different sign than Player 1.")
     player2_choice = player2.sign_choice()
-
-
 
 
 while True:
