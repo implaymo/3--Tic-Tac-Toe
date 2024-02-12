@@ -14,7 +14,6 @@ while player2_choice == player1_choice:
 
 
 while True:
-    board.check_if_winner()
     
     player1_turn = player1.play()
     board.add_signs(player1.player_row_decision, player1.player_column_decision, player1.player_choice)
@@ -34,4 +33,5 @@ while True:
 
     board.print_board()
 
+    board.check_vertical_winner()
 
