@@ -3,9 +3,9 @@
 class Board():
     def __init__(self) -> None:
         self.board = [
-                ["_", "|", "_", "|", "_"],
-                ["_", "|", "_", "|", "_"],
-                [" ", "|", " ", "|"," "]
+                ["1", "|", "_", "|", "_"],
+                ["_", "|", "2", "|", "_"],
+                [" ", "|", " ", "|","3"]
                 ]
         self.valid_move = True
         self.winning_amount = 3
@@ -55,24 +55,13 @@ class Board():
                return True
     
     def check_diagonal_winner(self):
-        for i in range(3):
-            count_X = 0
-            count_O = 0
-            if self.board[i][2 * i][0] == "X":
-                count_X += 1
-            elif self.board[i][2 * (2 - i)][0] == "X":
-                count_X += 1
-            elif self.board[i][2 * i][0] == "O" :
-                count_O += 1
-            elif self.board[i][2 * (2 - i)][0] == "O":
-                count_O += 1
-            
-            if count_X == self.winning_amount:
-               return True
-            if count_O == self.winning_amount:
-               return True
-                    
-                
+        for row in self.board:
+            for element in row[::2]:
+                print(element)         
                 
     def check_draw(self):
-        pass
+        for row in self.board:
+            for element in row[::2]:
+                if element != "X" and element != "O":
+                    return False
+        return True

@@ -11,7 +11,6 @@ while player2_choice == player1_choice:
     print("Player 2, you must choose a different sign than Player 1.")
     player2_choice = player2.sign_choice()
 
-
 game_on = True
 while game_on:
     board.check_diagonal_winner()
@@ -39,7 +38,10 @@ while game_on:
     board.print_board()
     
     if board.check_horizontal_winner() or board.check_vertical_winner() or board.check_diagonal_winner():
+        winner = True
         print(f"{player2.player_number} is the winner!")
         break
-
+    
+    if board.check_draw():
+        print("It's a Draw! Try again.")
 
