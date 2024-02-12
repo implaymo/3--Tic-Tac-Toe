@@ -55,4 +55,24 @@ class Board():
                return True
     
     def check_diagonal_winner(self):
-       pass 
+        for i in range(3):
+            count_X = 0
+            count_O = 0
+            if self.board[i][2 * i][0] == "X":
+                count_X += 1
+            elif self.board[i][2 * (2 - i)][0] == "X":
+                count_X += 1
+            elif self.board[i][2 * i][0] == "O" :
+                count_O += 1
+            elif self.board[i][2 * (2 - i)][0] == "O":
+                count_O += 1
+            
+            if count_X == self.winning_amount:
+               return True
+            if count_O == self.winning_amount:
+               return True
+                    
+                
+                
+    def check_draw(self):
+        pass

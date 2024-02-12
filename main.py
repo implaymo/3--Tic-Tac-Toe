@@ -14,6 +14,7 @@ while player2_choice == player1_choice:
 
 game_on = True
 while game_on:
+    board.check_diagonal_winner()
     
     player1_turn = player1.play()
     board.add_signs(player1.player_row_decision, player1.player_column_decision, player1.player_choice)
@@ -24,7 +25,7 @@ while game_on:
     
     board.print_board()
     
-    if board.check_horizontal_winner() or board.check_vertical_winner():
+    if board.check_horizontal_winner() or board.check_vertical_winner() or board.check_diagonal_winner():
         print(f"{player1.player_number} is the winner!")
         break
         
@@ -37,7 +38,7 @@ while game_on:
 
     board.print_board()
     
-    if board.check_horizontal_winner() or board.check_vertical_winner():
+    if board.check_horizontal_winner() or board.check_vertical_winner() or board.check_diagonal_winner():
         print(f"{player2.player_number} is the winner!")
         break
 
