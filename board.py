@@ -8,6 +8,9 @@ class Board():
                 [" ", "|", " ", "|"," "]
                 ]
         self.valid_move = True
+        self.winning_amount = 3
+
+
         
     def add_signs(self, row, column, user_choice):
         if self.board[int(row)][int(column)] == "X" or self.board[int(row)][int(column)]  == "O":
@@ -31,13 +34,25 @@ class Board():
                 elif column[row] == "O":
                     count_O += 1
             
-            if count_X == 3:
-                print("X is the Winner")
-            if count_O == 3:
-                print("O is the Winner")
-    
+            if count_X == self.winning_amount:
+                return True  
+            if count_O == self.winning_amount:
+               return True
+
     def check_horizontal_winner(self):
-       pass 
+       for row in self.board:
+            count_X = 0
+            count_O = 0
+            for column in range(0,5,2):
+                if row[column] == "X":
+                    count_X += 1
+                if row[column] == "O":
+                    count_O += 1
+                    
+            if count_X == self.winning_amount:
+               return True
+            if count_O == self.winning_amount:
+               return True
     
     def check_diagonal_winner(self):
        pass 
