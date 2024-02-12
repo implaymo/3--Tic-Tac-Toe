@@ -55,19 +55,12 @@ class Board():
                return True
     
     def check_diagonal_winner(self):
-        positions = []
-        for i in self.board:
-            for j in i[::2]:
-                positions.append(j)
-        
-        if positions[0] == "X" and positions[4] == "X" and positions[8] == "X":
+        if self.board[0][0] == self.board[1][2] == self.board[2][4] and self.board[0][0] in ["X", "O"]:
             return True
-        elif positions[0] == "O" and positions[4] == "O" and positions[8] == "O":
+        elif self.board[0][4] == self.board[1][2] == self.board[2][0] and self.board[0][4] in ["X", "O"]:
             return True
-        elif positions[2] == "X" and positions[4] == "X" and positions[6] == "X":
-            return True
-        elif positions[2] == "O" and positions[4] == "O" and positions[6] == "O":
-            return True    
+        else:
+            return False   
                 
     def check_draw(self):
         for row in self.board:
