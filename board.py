@@ -1,5 +1,3 @@
-
-
 class Board():
     def __init__(self) -> None:
         self.board = [
@@ -10,7 +8,6 @@ class Board():
         self.valid_move = True
         self.winning_amount = 3
 
-
         
     def add_signs(self, row, column, user_choice):
         if self.board[int(row)][int(column)] == "X" or self.board[int(row)][int(column)]  == "O":
@@ -19,6 +16,8 @@ class Board():
         else: 
             self.valid_move = True
             self.board[int(row)][int(column)]  = user_choice
+            self.print_board()
+
 
     def print_board(self):
         for row in self.board:
@@ -30,7 +29,6 @@ class Board():
                 ["_", "|", "_", "|", "_"],
                 [" ", "|", " ", "|"," "]
                 ]
-        return self.board
     
     def check_vertical_winner(self):
         for row in range(0,5,2):

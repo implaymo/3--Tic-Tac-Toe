@@ -1,5 +1,5 @@
 class Player():
-    def __init__(self, player_number) -> None:
+    def __init__(self, player_number, board) -> None:
         self.column = ["0","2","4"]
         self.row = ["0","1","2"]
         self.player_row_decision = "0"
@@ -7,6 +7,9 @@ class Player():
         self.player_choice = ""
         self.player_number = f"Player {player_number}"
         self.valid_move = True
+        
+        self.board = board
+        
 
     
     def sign_choice(self):
@@ -16,30 +19,40 @@ class Player():
             self.sign_choice()
         return self.player_choice
             
-    def column_choice(self):
+    def choose_column(self):
         try: 
             self.player_column_decision = input(f"{self.player_number} In which column do you want to put? Choose 0/2/4: ")
         except ValueError:
             print("Wrong choice. You must choose 0, 2 or 4") 
-            self.column_choice()
+            self.choose_column()
         else:
             if self.player_column_decision not in self.column or len(str(self.player_column_decision)) > 1:
                 print("Wrong choice. You must choose 0, 2 or 4: ") 
-                self.column_choice()
+                self.choose_column()
     
-    def row_choice(self):
+    def choose_row(self):
         try: 
             self.player_row_decision = input(f"{self.player_number} In which row do you want to put? Choose 0/1/2: ")
         except ValueError:
             print("Wrong choice. You must choose 0, 1 or 2") 
-            self.row_choice()
+            self.choose_row()
         else:
             if self.player_row_decision not in self.row or len(str(self.player_row_decision)) > 1:
                 print("Wrong choice. You must choose 0, 1 or 2") 
-                self.row_choice()
+                self.choose_row()
                 
-
+    def player_turn(self):
+        self.play()
+        self.board.add_signs(self.player_row_decision, self.player_column_decision, self.player_choice)
+        while self.board.valid_move is False:
+            self.play()
+            self.board.add_signs(self.player_row_decision, self.player_column_decision, self.player_choice)
      
     def play(self):
-        self.column_choice()
-        self.row_choice()
+        self.choose_column()
+        self.choose_row()
+        
+    
+        
+
+            
