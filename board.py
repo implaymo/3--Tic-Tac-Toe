@@ -24,6 +24,14 @@ class Board():
         for row in self.board:
             print(*row)
             
+    def board_reset(self):
+        self.board =  [
+                ["_", "|", "_", "|", "_"],
+                ["_", "|", "_", "|", "_"],
+                [" ", "|", " ", "|"," "]
+                ]
+        return self.board
+    
     def check_vertical_winner(self):
         for row in range(0,5,2):
             count_X = 0
@@ -68,3 +76,4 @@ class Board():
                 if element != "X" and element != "O":
                     return False
         return True
+    
