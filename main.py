@@ -34,7 +34,7 @@ def game_over(game_on, player):
             game_on = restart_game(game_on)
         return game_on
     
-    
+board.print_board()
 game_on = True
 while game_on:
     
