@@ -23,9 +23,9 @@ def restart_game(game_on):
             player2.sign_choice()
             return True 
         
-def game_over(game_on):
+def game_over(game_on, player):
         if board.check_horizontal_winner() or board.check_vertical_winner() or board.check_diagonal_winner():
-            print(f"{player1.player_number} is the winner!")
+            print(f"{player} is the winner!")
             game_on = False
             game_on = restart_game(game_on)
         elif board.check_draw():
@@ -40,11 +40,11 @@ while game_on:
     
     player1.player_turn()
 
-    game_over(game_on)
+    game_over(game_on, player="Player 1")
         
     player2.player_turn()
     
-    game_over(game_on)
+    game_over(game_on, player="Player 2")
       
     
 
