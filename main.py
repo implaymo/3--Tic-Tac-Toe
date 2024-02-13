@@ -1,6 +1,8 @@
 from player import Player
 from board import Board
+from score import Score
 
+score = Score()
 board = Board()
 player1 = Player(1, board=board)
 player2 = Player(2, board=board)
@@ -19,6 +21,7 @@ def restart_game(game_on):
             exit()
         elif play_again == "Y":
             board.board_reset()
+            board.print_board()
             player1.sign_choice()
             player2.sign_choice()
             return True 
@@ -26,6 +29,11 @@ def restart_game(game_on):
 def game_over(game_on, player):
         if board.check_horizontal_winner() or board.check_vertical_winner() or board.check_diagonal_winner():
             print(f"{player} is the winner!")
+            if player1.player_number == player:
+                score.player1_score += 1
+            else:
+                score.player2_score += 1
+            score.update_score(player1_number=player1.player_number, player2_number=player2.player_number)
             game_on = False
             game_on = restart_game(game_on)
         elif board.check_draw():
